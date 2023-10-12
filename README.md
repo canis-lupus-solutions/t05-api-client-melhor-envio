@@ -27,10 +27,39 @@ $clientMelhorEnvio = new MelhorEnvioApiClient(
     new MelhorEnvioApiConfig(EnvironmentEnum::Sandbox, $appName, $appSupportEmail, $token)
 );
 
-
-// Exemplo para a API de cotação de frete
+// Exemplo para Cotação de Frete
 try {    
-    // ...
+    $fretes = $clientMelhorEnvio->shipment->calculate([
+        'from' => ['postal_code' => "36085400"],
+        'to' => ['postal_code' => "36025007"],
+        'products' => [
+            [
+                'id' => 1,
+                'width' => 10,
+                'height' => 10,
+                'length' => 10,
+                'weight' => 1,
+                'insurance_value' => 200,
+                'quantity' => 1
+            ]
+        ]
+    ]);
+
+    $fretesComValor = [];
+    foreach ($fretes as $frete) {
+        if ($frete->getError()) continue;
+
+        $fretesComValor[] = [
+            'empresa' => $frete->getCompany()->getName(),
+            'servico' => $frete->getServiceName(),
+            'preco' => $frete->getPrice(),
+            'prazoEntrega' => $frete->getDeliveryTime() . ' dias úteis'
+        ];
+    }
+    echo "<pre>";
+    var_dump($fretesComValor);
+    echo "</pre>";
+    die;
 
 } catch (MelhorEnvioApiException $e) {
     die($e->getMessage());
@@ -38,9 +67,9 @@ try {
 ~~~
 
 
-## Exemplos
+## Mais exemplos
 
-Exemplos podem ser encontrados na pasta docs/examples
+Mais exemplos podem ser encontrados na pasta docs/examples
 
 
 
@@ -54,11 +83,11 @@ Exemplos podem ser encontrados na pasta docs/examples
 </tr>
 <tr>
     <td>Total de Endpoints abrangidos</td>
-    <td>6</td>
+    <td>7</td>
 </tr>
 <tr>
     <td>Percentual abrangido</td>
-    <td>17,64%</td>
+    <td>20,58%</td>
 </tr>
 </table>
 
@@ -70,7 +99,7 @@ Exemplos podem ser encontrados na pasta docs/examples
 |-----------------------------------------------------------|-------------------------------------------------|:------------:|
 | Autenticação                                              | [POST] Solicitação do token                     |      0%      |
 | Autenticação                                              | [GET] Listar informações de aplicativo          |      0%      |
-| Cotação                                                   | [POST] Cálculo de Fretes                        |      0%      |
+| Cotação                                                   | [POST] Cálculo de Fretes                        |     100%     |
 | Criando envios                                            | [POST] Inserir fretes no carrinho               |      0%      |
 | Criando envios                                            | [GET] Listar itens do carrinho                  |      0%      | 
 | Criando envios                                            | [GET] Exibir informações de item do carrinho    |      0%      |

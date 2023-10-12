@@ -21,6 +21,46 @@ $clientMelhorEnvio = new MelhorEnvioApiClient(
 
 try {
     /*********************************************************/
+    /* SHIPMENT - CALCULATE                                  */
+    /*********************************************************/
+
+    // Cálculo de Fretes
+    /*
+    $fretes = $clientMelhorEnvio->shipment->calculate([
+        'from' => ['postal_code' => "36085400"],
+        'to' => ['postal_code' => "36025007"],
+        'products' => [
+            [
+                'id' => 1,
+                'width' => 10,
+                'height' => 10,
+                'length' => 10,
+                'weight' => 1,
+                'insurance_value' => 200,
+                'quantity' => 1
+            ]
+        ]
+    ]);
+
+    $fretesComValor = [];
+    foreach ($fretes as $frete) {
+        if ($frete->getError()) continue;
+
+        $fretesComValor[] = [
+            'empresa' => $frete->getCompany()->getName(),
+            'servico' => $frete->getServiceName(),
+            'preco' => $frete->getPrice(),
+            'prazoEntrega' => $frete->getDeliveryTime() . ' dias úteis'
+        ];
+    }
+    echo "<pre>";
+    var_dump($fretesComValor);
+    echo "</pre>";
+    die;
+    */
+
+
+    /*********************************************************/
     /* SHIPMENT - COMPANIES                                  */
     /*********************************************************/
 

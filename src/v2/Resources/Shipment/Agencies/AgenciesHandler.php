@@ -32,8 +32,10 @@ class AgenciesHandler extends MelhorEnvioApiHandler
     /* ACTIONS */
 
     /**
-     * @return AgencyResource[]
+     * @param array|null $filters
+     * @return array
      * @throws MelhorEnvioApiException
+     * @throws Exception
      */
     public function list(array $filters = null): array
     {

@@ -44,7 +44,7 @@ class MelhorEnvioApiHandler
      * @param string $endpoint
      * @param array|null $param
      *
-     * @return array|null
+     * @return array
      * @throws MelhorEnvioApiException
      */
     protected function call(MethodEnum $method, string $endpoint, array $param = null): array
@@ -54,12 +54,19 @@ class MelhorEnvioApiHandler
         try {
             $guzzleClient = new Client();
 
+            $headers = [
+                'User-Agent' => $this->config->getAppName() . ' ' . $this->config->getAppSupportEmail(),
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json'
+            ];
+
+            if ($this->config->getToken()) {
+                $headers['Authorization'] = 'Bearer ' . $this->config->getToken();
+            }
+
             $res = $guzzleClient->request($method->value, $endpoint, [
                 RequestOptions::JSON => $param,
-                RequestOptions::HEADERS => [
-                    'User-Agent' => $this->config->getAppName() . ' ' . $this->config->getAppSupportEmail(),
-                    'Accept' => 'application/json'
-                ]
+                RequestOptions::HEADERS => $headers
             ]);
 
             $result = json_decode((string)$res->getBody(), true);
@@ -74,7 +81,7 @@ class MelhorEnvioApiHandler
             if ($e->hasResponse()) {
                 $errorData = json_decode((string)$e->getResponse()->getBody(), true);
 
-                $errorMessage = $errorData['message'];
+                $errorMessage = $errorData['message'] ?? 'The API returned no message, maybe an Authentication failure';
 
                 throw (new MelhorEnvioApiException($errorMessage));
 
