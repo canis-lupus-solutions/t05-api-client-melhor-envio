@@ -7,7 +7,7 @@ Cliente para integração com a API do sistema Melhor Envio. [Conheça o Melhor 
 ### Composer
 
 ```
-"canislupus/api-client-melhor-envio": "dev-master"
+composer require canislupus/api-client-melhor-envio
 ```
 
 ## Utilização
@@ -87,8 +87,8 @@ Exemplos podem ser encontrados na pasta docs/examples
 | Pesquisa, listagem e cancelamento de etiquetas            | [POST] Rastreio de envios                       |      0%      |
 | Listagem de transportadoras, serviços e agências          | [GET] Listar transportadoras                    |     100%     |
 | Listagem de transportadoras, serviços e agências          | [GET] Listar informações de uma transportadora  |     100%     |
-| Listagem de transportadoras, serviços e agências          | [GET] Listar serviços                           |      0%      |
-| Listagem de transportadoras, serviços e agências          | [GET] Listar informações de um serviço          |      0%      |
+| Listagem de transportadoras, serviços e agências          | [GET] Listar serviços                           |     100%     |
+| Listagem de transportadoras, serviços e agências          | [GET] Listar informações de um serviço          |     100%     |
 | Listagem de transportadoras, serviços e agências          | [GET] Listar agências (e opções de filtro)      |      0%      |
 | Listagem de transportadoras, serviços e agências          | [GET] Listar informações de uma agência         |      0%      |
 | Informações do usuário                                    | [GET] Listar informações do usuário             |      0%      |

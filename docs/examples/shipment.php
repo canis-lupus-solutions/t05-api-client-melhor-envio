@@ -45,6 +45,57 @@ try {
     */
 
 
+    /*********************************************************/
+    /* SHIPMENT - SERVICES                                   */
+    /*********************************************************/
+
+    // Listar Serviços
+    /*
+    $servicos = $clientMelhorEnvio->shipment->services->list();
+
+    echo "<pre>";
+    var_dump($servicos);
+    echo "</pre>";
+    die;
+    */
+
+
+    // Listar Informações de um Serviço
+    /*
+    $servico = $clientMelhorEnvio->shipment->services->view(1);
+
+    echo "<pre>";
+    var_dump($servico);
+    echo "</pre>";
+    die;
+    */
+
+
+    /*********************************************************/
+    /* SHIPMENT - AGENCIES                                   */
+    /*********************************************************/
+
+    // Listar Agências
+    /*
+    $transportadoras = $clientMelhorEnvio->shipment->companies->list();
+
+    echo "<pre>";
+    var_dump($transportadoras);
+    echo "</pre>";
+    die;
+    */
+
+    // Listar Informações de uma Agência
+    /*
+    $transportadora = $clientMelhorEnvio->shipment->companies->view(1);
+
+    echo "<pre>";
+    var_dump($transportadora);
+    echo "</pre>";
+    die;
+    */
+
+
 } catch (MelhorEnvioApiException $e) {
     die($e->getMessage());
 }

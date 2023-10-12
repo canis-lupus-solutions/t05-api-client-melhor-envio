@@ -34,10 +34,12 @@ class CompanyResource
 
     /**
      * @param int $id
+     * @return CompanyResource
      */
-    public function setId(int $id): void
+    public function setId(int $id): CompanyResource
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
@@ -50,10 +52,12 @@ class CompanyResource
 
     /**
      * @param string $name
+     * @return CompanyResource
      */
-    public function setName(string $name): void
+    public function setName(string $name): CompanyResource
     {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -66,10 +70,12 @@ class CompanyResource
 
     /**
      * @param string|null $picture
+     * @return CompanyResource
      */
-    public function setPicture(?string $picture): void
+    public function setPicture(?string $picture): CompanyResource
     {
         $this->picture = $picture;
+        return $this;
     }
 
     /**
@@ -82,9 +88,11 @@ class CompanyResource
 
     /**
      * @param array $services
+     * @return CompanyResource
      */
-    public function setServices(array $services): void
+    public function setServices(array $services): CompanyResource
     {
         $this->services = $services;
+        return $this;
     }
 }
