@@ -77,20 +77,25 @@ try {
 
     // Listar Agências
     /*
-    $transportadoras = $clientMelhorEnvio->shipment->companies->list();
+    //$agencias = $clientMelhorEnvio->shipment->agencies->list();
+    $agenciasJadLogEmSaoPaulo = $clientMelhorEnvio->shipment->agencies->list([
+        'company' => 2,
+        'state' => 'SP',
+    ]);
 
     echo "<pre>";
-    var_dump($transportadoras);
+    var_dump($agenciasJadLogEmSaoPaulo);
     echo "</pre>";
     die;
     */
 
+
     // Listar Informações de uma Agência
     /*
-    $transportadora = $clientMelhorEnvio->shipment->companies->view(1);
+    $agencia = $clientMelhorEnvio->shipment->agencies->view(1);
 
     echo "<pre>";
-    var_dump($transportadora);
+    var_dump($agencia);
     echo "</pre>";
     die;
     */

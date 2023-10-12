@@ -54,11 +54,11 @@ Exemplos podem ser encontrados na pasta docs/examples
 </tr>
 <tr>
     <td>Total de Endpoints abrangidos</td>
-    <td>2</td>
+    <td>6</td>
 </tr>
 <tr>
     <td>Percentual abrangido</td>
-    <td>5,88%</td>
+    <td>17,64%</td>
 </tr>
 </table>
 
@@ -89,8 +89,8 @@ Exemplos podem ser encontrados na pasta docs/examples
 | Listagem de transportadoras, serviços e agências          | [GET] Listar informações de uma transportadora  |     100%     |
 | Listagem de transportadoras, serviços e agências          | [GET] Listar serviços                           |     100%     |
 | Listagem de transportadoras, serviços e agências          | [GET] Listar informações de um serviço          |     100%     |
-| Listagem de transportadoras, serviços e agências          | [GET] Listar agências (e opções de filtro)      |      0%      |
-| Listagem de transportadoras, serviços e agências          | [GET] Listar informações de uma agência         |      0%      |
+| Listagem de transportadoras, serviços e agências          | [GET] Listar agências (e opções de filtro)      |     100%     |
+| Listagem de transportadoras, serviços e agências          | [GET] Listar informações de uma agência         |     100%     |
 | Informações do usuário                                    | [GET] Listar informações do usuário             |      0%      |
 | Informações do usuário                                    | [GET] Listar endereços do usuário               |      0%      |
 | Informações do usuário                                    | [GET] Saldo do usuário                          |      0%      |

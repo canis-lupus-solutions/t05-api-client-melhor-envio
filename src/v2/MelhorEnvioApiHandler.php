@@ -44,7 +44,7 @@ class MelhorEnvioApiHandler
      * @param string $endpoint
      * @param array|null $param
      *
-     * @return array
+     * @return array|null
      * @throws MelhorEnvioApiException
      */
     protected function call(MethodEnum $method, string $endpoint, array $param = null): array
@@ -62,7 +62,13 @@ class MelhorEnvioApiHandler
                 ]
             ]);
 
-            return json_decode((string)$res->getBody(), true);
+            $result = json_decode((string)$res->getBody(), true);
+
+            if (!$result) {
+                return [];
+            }
+
+            return $result;
 
         } catch (RequestException $e) {
             if ($e->hasResponse()) {

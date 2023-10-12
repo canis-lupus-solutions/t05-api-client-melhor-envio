@@ -41,7 +41,7 @@ class CompaniesHandler extends MelhorEnvioApiHandler
     }
 
     /**
-     * @param $companyId
+     * @param int $companyId
      *
      * @return CompanyResource|null
      * @throws MelhorEnvioApiException
@@ -60,6 +60,10 @@ class CompaniesHandler extends MelhorEnvioApiHandler
 
     /* SUPPORT METHODS */
 
+    /**
+     * @param array $data
+     * @return CompanyResource
+     */
     public static function hidrateResource(array $data): CompanyResource
     {
         $object = new CompanyResource($data['id'], $data['name']);

@@ -69,6 +69,10 @@ class ServicesHandler extends MelhorEnvioApiHandler
 
     /* SUPPORT METHODS */
 
+    /**
+     * @param array $data
+     * @return ServiceResource
+     */
     public static function hidrateResource(array $data): ServiceResource
     {
         $object = new ServiceResource($data['id'], $data['name']);
