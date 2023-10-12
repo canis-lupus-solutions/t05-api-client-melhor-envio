@@ -40,8 +40,15 @@ class CalculateHandler extends MelhorEnvioApiHandler
         $result = $this->call(MethodEnum::GET, 'shipment/calculate', $data);
 
         $calculations = [];
-        foreach ($result as $calculationData) {
-            $calculations[] = $this->hidrateResource($calculationData);
+
+        if (count($result) >= 1) {
+            if (isset($result[0])) {
+                foreach ($result as $calculationData) {
+                    $calculations[] = $this->hidrateResource($calculationData);
+                }
+            } else {
+                $calculations[] = $this->hidrateResource($result);
+            }
         }
 
         return $calculations;
